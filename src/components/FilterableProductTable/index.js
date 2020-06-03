@@ -7,11 +7,18 @@ import { getAllProducts } from "../../api";
 
 export class FilterableProductTable extends React.Component {
   state = {
+    searchTerm: "",
+    isInStockOnly: false,
     products: [],
-    // What else in 'state' ❓🤔
   };
 
-  // TODO: Add 2 methods to handle changes...what types of changes? 🤔
+  handleFilterChange = (searchTerm) => {
+    this.setState({ searchTerm });
+  };
+
+  handleShowInStockChange = (isInStockOnly) => {
+    this.setState({ isInStockOnly });
+  };
 
   async componentDidMount() {
     try {
@@ -31,8 +38,10 @@ export class FilterableProductTable extends React.Component {
 
     return (
       <main>
-        {/* TODO: Pass in 'props' to components as needed */}
-        <Search />
+        <Search
+          onFilterChange={this.handleFilterChange}
+          onShowInStockChange={this.handleShowInStockChange}
+        />
         <Table />
       </main>
     );
