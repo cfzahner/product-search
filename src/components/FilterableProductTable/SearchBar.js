@@ -7,13 +7,13 @@ export class SearchBar extends React.Component {
     onShowInStockChange: PropTypes.func,
   };
 
-  handleCheckboxChange = (event) => {
-    this.props.onShowInStockChange(event.target.checked);
+  handleCheckboxChange = ({ target }) => {
+    this.props.onShowInStockChange(target.checked);
   };
 
-  handleInputChange = (event) => {
+  handleInputChange = ({ target }) => {
     // Send the value from the input that caused this 'event' to the parent
-    this.props.onFilterChange(event.target.value);
+    this.props.onFilterChange(target.value);
   };
 
   render() {
