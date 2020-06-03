@@ -6,11 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 _[This](https://reactjs.org/docs/thinking-in-react.html) is what we are building. Make 💯 that you have all of the basics of React down as we have done in previous examples. Read through and make sure that you are clear on what we are doing here b4 starting to code._
 
-1. [Here is the RESTful API Endpoint.](https://my-json-server.typicode.com/Claim-Academy-JS/products/products)
-
-2. `mkdir api` (inside 'src' 📂) to adhere to the Repository Pattern. You just need [something like this.](https://github.com/Claim-Academy-JS/studio-ghibli-API-SPA/blob/master/src/api/index.js) In fact, you can just hardcode `products` as that is our only endpoint.
-
-3. Browse through 'components' 📂 for further `// TODO`s.
+[Here is the RESTful API Endpoint.](https://my-json-server.typicode.com/Claim-Academy-JS/products/products)
 
 ---
 
