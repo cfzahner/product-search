@@ -1,7 +1,7 @@
 import React from "react";
 
-function App() {
-  return <h1>Product Search</h1>;
-}
+import { FilterableProductTable as ProductTable } from "./components";
 
-export default App;
+export const App = () => {
+  return <ProductTable />;
+};
