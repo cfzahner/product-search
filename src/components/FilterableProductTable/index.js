@@ -3,7 +3,7 @@ import React from "react";
 import { SearchBar as Search } from "./SearchBar";
 import { ProductTable as Table } from "./ProductTable";
 
-import { getAllProducts } from "../../api";
+import { getAllProducts } from "api";
 
 const filterCBs = {
   inStockOnly: ({ stocked }) => stocked,
