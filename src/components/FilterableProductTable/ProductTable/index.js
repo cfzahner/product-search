@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-// TODO: Write ✍️ fxn. to build 'ProductRows' from 'products'
-
 const renderTBody = (products) => {
   return products.map(({ name, price }, index) => {
     return (
