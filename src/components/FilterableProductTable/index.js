@@ -12,9 +12,10 @@ const filterCBs = {
 
 export class FilterableProductTable extends React.Component {
   state = {
-    searchTerm: "",
     isInStockOnly: false,
+    maxPrice: null,
     products: [],
+    searchTerm: "",
   };
 
   handleFilterChange = (searchTerm) => {
