@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
-adfasfasfasdfasfasfsaf;
+
 const renderTBody = (products) => {
   return products.map(({ name, price }, index) => {
     return (
-      <tr key="index">
+      <tr key={index}>
         <td>{name}</td>
         <td>{price}</td>
       </tr>
