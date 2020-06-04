@@ -24,6 +24,10 @@ export class FilterableProductTable extends React.Component {
     this.setState({ searchTerm });
   };
 
+  handlePriceChange = (maxPrice) => {
+    this.setState({ maxPrice });
+  };
+
   handleShowInStockChange = (isInStockOnly) => {
     this.setState({ isInStockOnly });
   };
@@ -50,7 +54,7 @@ export class FilterableProductTable extends React.Component {
       <main>
         <Search onFilterChange={this.handleFilterChange} />
         <InStock onShowInStockChange={this.handleShowInStockChange} />
-        <Price />
+        <Price onPriceChange={this.handlePriceChange} />
         <Table products={filteredProducts} />
       </main>
     );

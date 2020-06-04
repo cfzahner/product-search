@@ -14,8 +14,8 @@ export class PriceBar extends React.Component {
   render() {
     return (
       <div>
-        <label htmlFor="filter">Max Price</label>
-        <input id="filter" type="number" onChange={this.handleInputChange} />
+        <label htmlFor="price">Max Price</label>
+        <input id="price" type="number" onChange={this.handleInputChange} />
       </div>
     );
   }
