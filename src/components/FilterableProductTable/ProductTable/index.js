@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-
+adfasfasfasdfasfasfsaf;
 const renderTBody = (products) => {
   return products.map(({ name, price }, index) => {
     return (
