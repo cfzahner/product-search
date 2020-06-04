@@ -1,5 +1,5 @@
-/**
- * Remove duplicates from an Array
+export const parseDollarPrice = (dollarPrice) =>
+  parseFloat(dollarPrice.slice(1));
  * @param {Array} arr
  * @returns {Array}
  */
