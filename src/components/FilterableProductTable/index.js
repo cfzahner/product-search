@@ -5,6 +5,11 @@ import { ProductTable as Table } from "./ProductTable";
 
 import { getAllProducts } from "../../api";
 
+const filterCBs = {
+  inStockOnly: ({ stocked }) => stocked,
+  unfiltered: () => true,
+};
+
 export class FilterableProductTable extends React.Component {
   state = {
     searchTerm: "",
@@ -29,9 +34,14 @@ export class FilterableProductTable extends React.Component {
   }
 
   render() {
-    const filteredProducts = this.state.products.filter(({ name }) =>
-      name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
-    );
+    // Ternary
+    const filterINeed = this.state.isInStockOnly ? "inStockOnly" : "unfiltered";
+
+    const filteredProducts = this.state.products
+      .filter(({ name }) =>
+        name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+      )
+      .filter(filterCBs[filterINeed]);
 
     return (
       <main>
