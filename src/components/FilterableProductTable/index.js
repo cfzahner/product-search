@@ -20,6 +20,8 @@ export class FilterableProductTable extends React.Component {
     inStockOnly: ({ stocked }) => stocked,
     maxPrice: ({ price }) =>
       parseDollarPrice(price) <= parseFloat(this.state.maxPrice),
+    searchTerm: ({ name }) =>
+      name.toLowerCase().includes(this.state.searchTerm.toLowerCase()),
   };
 
   handleFilterChange = (searchTerm) => {
@@ -30,8 +32,8 @@ export class FilterableProductTable extends React.Component {
     this.setState({ maxPrice });
   };
 
-  handleShowInStockChange = (isInStockOnly) => {
-    this.setState({ isInStockOnly });
+  handleShowInStockChange = (inStockOnly) => {
+    this.setState({ inStockOnly });
   };
 
   async componentDidMount() {
@@ -49,16 +51,17 @@ export class FilterableProductTable extends React.Component {
   );
 
   render() {
-    // Start off with all products
-    let filteredProducts = this.state.products;
-
-    if (this.state.inStockOnly) {
-      filteredProducts = filteredProducts.filter(this.filterCBs.inStockOnly);
-    }
-
-    if (this.state.maxPrice) {
-      filteredProducts = filteredProducts.filter(this.filterCBs.maxPrice);
-    }
+    const filteredProducts = this.filterableStateNames.reduce(
+      (accumulatedProducts, filterableStateName) => {
+        if (this.state[filterableStateName]) {
+          return accumulatedProducts.filter(
+            this.filterCBs[filterableStateName]
+          );
+        }
+        return accumulatedProducts;
+      },
+      this.state.products
+    );
 
     return (
       <main>
