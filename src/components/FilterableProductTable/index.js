@@ -49,8 +49,6 @@ export class FilterableProductTable extends React.Component {
   );
 
   render() {
-    console.log(this.filterCBMethods);
-
     // Start off with all products
     let filteredProducts = this.state.products;
 
