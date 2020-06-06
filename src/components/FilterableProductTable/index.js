@@ -52,7 +52,7 @@ export class FilterableProductTable extends React.Component {
     // Start off with all products
     let filteredProducts = this.state.products;
 
-    if (this.state.isInStockOnly) {
+    if (this.state.inStockOnly) {
       filteredProducts = filteredProducts.filter(this.filterCBs.inStockOnly);
     }
 
