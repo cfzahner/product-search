@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Input } from "./Input";
+
 import { InStockCheck as InStock } from "./Filters";
 import { PriceBar as Price } from "./Filters";
 import { ProductTable as Table } from "./ProductTable";
@@ -65,6 +67,7 @@ export class FilterableProductTable extends React.Component {
 
     return (
       <main>
+        <Input label="Test Label" type="text" value="value" />
         <Search onFilterChange={this.handleFilterChange} />
         <InStock onShowInStockChange={this.handleShowInStockChange} />
         <Price onPriceChange={this.handlePriceChange} />
