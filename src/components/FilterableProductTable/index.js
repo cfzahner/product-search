@@ -48,6 +48,7 @@ export class FilterableProductTable extends React.Component {
     this.filterCBNames.includes(stateName)
   );
 
+  // TODO: Iterate over this Array and for each one feed props into <Input />
   inputs = [
     {
       labelTextContent: "Max Price",
@@ -66,16 +67,14 @@ export class FilterableProductTable extends React.Component {
 
   renderInputs() {
     return this.inputs.map(
-      ({ labelTextContent, inputType, val = "value" }, index) => {
-        return (
-          <Input
-            label={labelTextContent}
-            type={inputType}
-            value={val}
-            key={index}
-          />
-        );
-      }
+      ({ labelTextContent, inputType, val = "value" }, index) => (
+        <Input
+          label={labelTextContent}
+          type={inputType}
+          value={val}
+          key={index}
+        />
+      )
     );
   }
 
