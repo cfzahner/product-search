@@ -22,18 +22,6 @@ export class FilterableProductTable extends React.Component {
       name.toLowerCase().includes(this.state.searchTerm.toLowerCase()),
   };
 
-  handleFilterChange = (searchTerm) => {
-    this.setState({ searchTerm });
-  };
-
-  handlePriceChange = (maxPrice) => {
-    this.setState({ maxPrice });
-  };
-
-  handleShowInStockChange = (inStockOnly) => {
-    this.setState({ inStockOnly });
-  };
-
   async componentDidMount() {
     try {
       this.setState({ products: await getAllProducts() });
