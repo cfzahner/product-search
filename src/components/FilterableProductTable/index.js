@@ -14,12 +14,23 @@ export class FilterableProductTable extends React.Component {
     search: "",
   };
 
+  // Scope our 'proxy' to 'this' entire object - class
+  stateProxy = new Proxy(this, {
+    // 'Trap' the object on which we attempted to change a 'prop' - 'comp'
+    set(comp, prop, value) {
+      // 'this' is scoped to 'set' - so we must 'comp' which will be the original 'this'
+      // Use brackets to interpolate - 'prop'
+      comp.setState({ [prop]: value });
+      return true;
+    },
+  });
+
   filterCBs = {
     inStockOnly: ({ stocked }) => stocked,
     maxPrice: ({ price }) =>
       parseDollarPrice(price) <= parseFloat(this.state.maxPrice),
     search: ({ name }) =>
-      name.toLowerCase().includes(this.state.searchTerm.toLowerCase()),
+      name.toLowerCase().includes(this.state.search.toLowerCase()),
   };
 
   async componentDidMount() {
@@ -36,7 +47,6 @@ export class FilterableProductTable extends React.Component {
     this.filterCBNames.includes(stateName)
   );
 
-  // TODO: Iterate over this Array and for each one feed props into <Input />
   inputs = [
     {
       labelTextContent: "Max Price",
@@ -60,6 +70,7 @@ export class FilterableProductTable extends React.Component {
           label={labelTextContent}
           type={inputType}
           value={val}
+          proxy={this.stateProxy}
           key={index}
         />
       )
