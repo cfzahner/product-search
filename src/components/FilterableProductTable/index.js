@@ -1,11 +1,7 @@
 import React from "react";
 
 import { Input } from "./Input";
-
-import { InStockCheck as InStock } from "./Filters";
-import { PriceBar as Price } from "./Filters";
 import { ProductTable as Table } from "./ProductTable";
-import { SearchBar as Search } from "./Filters";
 
 import { getAllProducts } from "api";
 import { parseDollarPrice } from "utils";
@@ -15,14 +11,14 @@ export class FilterableProductTable extends React.Component {
     inStockOnly: false,
     maxPrice: null,
     products: [],
-    searchTerm: "",
+    search: "",
   };
 
   filterCBs = {
     inStockOnly: ({ stocked }) => stocked,
     maxPrice: ({ price }) =>
       parseDollarPrice(price) <= parseFloat(this.state.maxPrice),
-    searchTerm: ({ name }) =>
+    search: ({ name }) =>
       name.toLowerCase().includes(this.state.searchTerm.toLowerCase()),
   };
 
@@ -52,6 +48,37 @@ export class FilterableProductTable extends React.Component {
     this.filterCBNames.includes(stateName)
   );
 
+  inputs = [
+    {
+      labelTextContent: "Max Price",
+      inputType: "number",
+    },
+    {
+      labelTextContent: "In Stock Only",
+      inputType: "checkbox",
+      val: "checked",
+    },
+    {
+      labelTextContent: "Search",
+      inputType: "search",
+    },
+  ];
+
+  renderInputs() {
+    return this.inputs.map(
+      ({ labelTextContent, inputType, val = "value" }, index) => {
+        return (
+          <Input
+            label={labelTextContent}
+            type={inputType}
+            value={val}
+            key={index}
+          />
+        );
+      }
+    );
+  }
+
   render() {
     const filteredProducts = this.filterableStateNames.reduce(
       (accumulatedProducts, filterableStateName) => {
@@ -67,10 +94,7 @@ export class FilterableProductTable extends React.Component {
 
     return (
       <main>
-        <Input label="Test Label" type="text" value="value" />
-        <Search onFilterChange={this.handleFilterChange} />
-        <InStock onShowInStockChange={this.handleShowInStockChange} />
-        <Price onPriceChange={this.handlePriceChange} />
+        {this.renderInputs()}
         <Table products={filteredProducts} />
       </main>
     );
