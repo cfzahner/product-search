@@ -4,7 +4,7 @@ import { Input } from "./Input";
 import { ProductTable as Table } from "./ProductTable";
 
 import { getAllProducts } from "api";
-import { parseDollarPrice } from "utils";
+import { getStateProxy, parseDollarPrice } from "utils";
 
 export class FilterableProductTable extends React.Component {
   state = {
@@ -15,15 +15,7 @@ export class FilterableProductTable extends React.Component {
   };
 
   // Scope our 'proxy' to 'this' entire object - class
-  stateProxy = new Proxy(this, {
-    // 'Trap' the object on which we attempted to change a 'prop' - 'comp'
-    set(comp, prop, value) {
-      // 'this' is scoped to 'set' - so we must 'comp' which will be the original 'this'
-      // Use brackets to interpolate - 'prop'
-      comp.setState({ [prop]: value });
-      return true;
-    },
-  });
+  stateProxy = getStateProxy(this);
 
   filterCBs = {
     inStockOnly: ({ stocked }) => stocked,
