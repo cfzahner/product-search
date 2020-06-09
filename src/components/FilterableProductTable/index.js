@@ -6,6 +6,8 @@ import { ProductTable as Table } from "./ProductTable";
 import { getAllProducts } from "api";
 import { getStateProxy, parseDollarPrice } from "utils";
 
+import "./FilterableProductTable.css";
+
 export class FilterableProductTable extends React.Component {
   state = {
     inStockOnly: false,
@@ -83,8 +85,13 @@ export class FilterableProductTable extends React.Component {
     );
 
     return (
-      <main>
-        {this.renderInputs()}
+      <main className="FilterableProductTable">
+        <form>
+          <fieldset>
+            <legend>Search Filters</legend>
+            {this.renderInputs()}
+          </fieldset>
+        </form>
         <Table products={filteredProducts} />
       </main>
     );

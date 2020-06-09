@@ -4,6 +4,8 @@ import React from "react";
 import camelCase from "camelcase";
 import kebabcase from "lodash.kebabcase";
 
+import "./Input.css";
+
 export class Input extends React.Component {
   static propTypes = {
     label: PropTypes.string.isRequired,
