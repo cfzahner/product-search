@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "build": "webpack",
+    "start-server": "nodemon dist/main.js",
+    "watch": "webpack --watch"
   },
   "keywords": [],
   "author": "",
