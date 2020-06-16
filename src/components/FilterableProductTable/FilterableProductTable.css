@@ -5,3 +5,20 @@ form {
 fieldset {
   background-color: aliceblue;
 }
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  transition: color 0.2s;
+}
+
+button:hover {
+  color: orchid;
+  cursor: pointer;
+}
