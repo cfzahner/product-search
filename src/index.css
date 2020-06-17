@@ -11,3 +11,15 @@ body {
   max-width: 375px;
   padding: 1rem;
 }
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}

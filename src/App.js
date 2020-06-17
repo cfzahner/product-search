@@ -1,5 +1,13 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-import { FilterableProductTable as ProductTable } from "./components";
+import {
+  FilterableProductTable as ProductTable,
+  Navigation as FakeNavigation,
+} from "./components";
 
-export const App = () => <ProductTable />;
+export const App = () => (
+  <Fragment>
+    <FakeNavigation />
+    <ProductTable />)
+  </Fragment>
+);
