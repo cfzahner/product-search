@@ -1,10 +1,7 @@
 import dotenv from "dotenv";
-import mongodb from "mongodb";
+import { MongoClient } from "mongodb";
 
 dotenv.config();
-
-// Destructure a class/property from the 'import' 👆🏽
-const { MongoClient } = mongodb;
 
 export const client = new MongoClient(
   process.env.ATLAS_URI,
