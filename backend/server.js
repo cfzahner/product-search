@@ -1,5 +1,5 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
 
 // Import the router
 import products from "./routes/api/products";
@@ -9,17 +9,15 @@ const PORT = 80;
 
 app.use(
   cors({
-    // Allow from requests origin
+    // Allow CORS from 'localhost' only
     origin: true,
-    // Send headers
-    credentials: true,
   })
 );
 
 app.use(express.json());
 
-app.use("/api/products", products);
+app.use("/api", products);
 
 app.listen(PORT, () => {
-  console.info(`CORS-enabled web server listening on port ${80}!`);
+  console.info(`Server 🏃🏽‍♂️: http://localhost:${PORT}!`);
 });
