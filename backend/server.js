@@ -4,7 +4,7 @@ import express from "express";
 import products from "./routes/api/products";
 
 const app = express();
-const PORT = 80;
+const PORT = 3001;
 
 app.get("/", (_, res) => res.send("<p>Hello from Express!</p>"));
 
@@ -17,5 +17,5 @@ app.use(
 app.use("/api/products", products);
 
 app.listen(PORT, () => {
-  console.info(`🏃🏽‍♂️ a server on port: ${PORT}`);
+  console.info(`🏃🏽‍♂️ a server: http://localhost:${PORT}`);
 });
