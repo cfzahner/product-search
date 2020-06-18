@@ -1,7 +1,7 @@
 import cors from "cors";
 import express from "express";
 
-import { getAllProducts } from "./db";
+import products from "./routes/api/products";
 
 const app = express();
 const PORT = 80;
@@ -14,10 +14,8 @@ app.use(
   })
 );
 
+app.use("/api/products", products);
+
 app.listen(PORT, () => {
   console.info(`🏃🏽‍♂️ a server on port: ${PORT}`);
 });
-
-(async () => {
-  console.log(await getAllProducts());
-})();
