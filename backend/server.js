@@ -5,7 +5,7 @@ import express from "express";
 import products from "./routes/api/products";
 
 const app = express();
-const PORT = 80;
+const PORT = 3001;
 
 app.use(
   cors({

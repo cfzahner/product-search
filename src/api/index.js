@@ -1,4 +1,4 @@
 export const getAllProducts = async () => {
-  const resp = await fetch("http://localhost:80/api/products/products");
+  const resp = await fetch("http://localhost:3001/api/products");
   return resp.json();
 };
