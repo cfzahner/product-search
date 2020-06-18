@@ -10,3 +10,17 @@ export const client = new MongoClient(
     useUnifiedTopology: true,
   }
 );
+
+// Close the connection when we shut down server
+(async () => {
+  await client.connect();
+
+  // 'CTRL + C' - "SIGINT"
+  process.on("SIGINT", () => {
+    client.close().then(() => {
+      console.info("SIGINT signal received. Closing MongoClient.");
+      // Intentionally shut down node server so we don't 'plug up ports'
+      process.exit(0);
+    });
+  });
+})();
