@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ProxyInput } from "../Input/ProxyInput";
+import { Input } from "components/Input";
 import { ProductTable as Table } from "./ProductTable";
 
 import { getAllProducts } from "api";
@@ -60,7 +60,7 @@ export class FilterableProductTable extends React.Component {
   renderInputs() {
     return this.inputs.map(
       ({ labelTextContent, inputType, valType }, index) => (
-        <ProxyInput
+        <Input
           label={labelTextContent}
           type={inputType}
           value={valType}
