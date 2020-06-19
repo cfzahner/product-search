@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import camelCase from "camelcase";
-import kebabcase from "lodash.kebabcase";
 
 import "./Input.css";
 
@@ -20,8 +19,8 @@ export class Input extends React.Component {
     value: PropTypes.string,
   };
 
-  // Use 'label prop' to create the matching 'htmlFor' and 'id' for <label> and <input> respectively
-  labelId = kebabcase(this.props.label);
+  // All attributes to be camelCased
+  camelCaseLabel = camelCase(this.props.label);
 
   handleChange = ({ target }) => {
     this.props.proxy[target.dataset.st] = target[this.props.value];
@@ -30,12 +29,12 @@ export class Input extends React.Component {
   render() {
     return (
       <div>
-        <label htmlFor={this.labelId}>{this.props.label}</label>
+        <label htmlFor={this.camelCaseLabel}>{this.props.label}</label>
         <input
-          id={this.labelId}
+          id={this.camelCaseLabel}
           type={this.props.type}
           placeholder={this.props.label}
-          data-st={this.props.st || camelCase(this.props.label)}
+          data-st={this.props.st || this.camelCaseLabel}
           onChange={this.handleChange}
         />
       </div>
