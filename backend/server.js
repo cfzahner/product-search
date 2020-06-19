@@ -16,7 +16,7 @@ app.use(
 
 app.use(express.json());
 
-app.use("/api", products);
+app.use("/api/products", products);
 
 app.listen(PORT, () => {
   console.info(`Server 🏃🏽‍♂️: http://localhost:${PORT}!`);
