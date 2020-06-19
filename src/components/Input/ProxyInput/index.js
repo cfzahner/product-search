@@ -1,3 +1,5 @@
+import { Input } from "components/Input";
+
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -6,12 +8,9 @@ import kebabcase from "lodash.kebabcase";
 
 import "./Input.css";
 
-export class Input extends React.Component {
+export class ProxyInput extends Input {
   static propTypes = {
-    label: PropTypes.string.isRequired,
     proxy: PropTypes.object.isRequired,
-    type: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
   };
 
   handleChange = ({ target }) => {
