@@ -85,20 +85,15 @@ export class FilterableProductTable extends React.Component {
     );
 
     return (
-      <div className="FilterableProductTable">
-        <main>
-          <form>
-            <fieldset>
-              <legend>Search Filters</legend>
-              {this.renderInputs()}
-            </fieldset>
-          </form>
-          <Table products={filteredProducts} />
-        </main>
-        <footer>
-          <button>Admin</button>
-        </footer>
-      </div>
+      <main className="FilterableProductTable">
+        <form>
+          <fieldset>
+            <legend>Search Filters</legend>
+            {this.renderInputs()}
+          </fieldset>
+        </form>
+        <Table products={filteredProducts} />
+      </main>
     );
   }
 }
