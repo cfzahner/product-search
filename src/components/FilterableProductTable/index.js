@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Input } from "./Input";
+import { ProxyInput } from "../Input/ProxyInput";
 import { ProductTable as Table } from "./ProductTable";
 
 import { getAllProducts } from "api";
@@ -49,7 +49,7 @@ export class FilterableProductTable extends React.Component {
     {
       labelTextContent: "In Stock Only",
       inputType: "checkbox",
-      val: "checked",
+      valType: "checked",
     },
     {
       labelTextContent: "Search",
@@ -59,11 +59,11 @@ export class FilterableProductTable extends React.Component {
 
   renderInputs() {
     return this.inputs.map(
-      ({ labelTextContent, inputType, val = "value" }, index) => (
-        <Input
+      ({ labelTextContent, inputType, valType }, index) => (
+        <ProxyInput
           label={labelTextContent}
           type={inputType}
-          value={val}
+          value={valType}
           proxy={this.stateProxy}
           key={index}
         />

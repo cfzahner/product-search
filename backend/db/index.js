@@ -4,7 +4,7 @@ export const getAllProducts = async () => {
   try {
     const cursor = await client.db("products").collection("data").find();
     const results = await cursor.toArray();
-    await cursor.close();
+    cursor.close();
     return results;
   } catch (err) {
     throw new Error(err);
