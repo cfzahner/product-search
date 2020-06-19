@@ -1,0 +1,29 @@
+/* TODO: Add additional button classes to build a 'style library.' 🤷🏽‍♂️ */
+button:not(.plain) {
+  border-radius: 0.25rem;
+  color: #fff;
+  padding: 0.375rem 0.75rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.plain {
+  background-color: transparent;
+  border: none;
+  color: #333;
+}
+
+.primary {
+  background-color: #6200ee;
+}
+
+.primary:hover {
+  background-color: #3700b3;
+}
+
+.success {
+  background-color: #00c851;
+}
+
+.success:hover {
+  background-color: #007e33;
+}
