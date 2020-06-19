@@ -1,4 +1,5 @@
-export const getStateProxy = (component) =>
+// TODO: Consider scoping 'react only' utils
+export const createStateProxy = (component) =>
   new Proxy(component, {
     // 'Trap' the object on which we attempted to change a 'prop' - 'comp'
     set(comp, prop, value) {
