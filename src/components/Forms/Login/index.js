@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Button } from "components/Button";
-import { Form } from "components/Forms";
+import { Form } from "components/Forms/Form";
 import { Input } from "components/Input";
 
 import styles from "./Login.module.css";
