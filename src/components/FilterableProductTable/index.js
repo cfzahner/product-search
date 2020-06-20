@@ -4,7 +4,7 @@ import { Input } from "components/Input";
 import { ProductTable as Table } from "./ProductTable";
 
 import { getAllProducts } from "api";
-import { createStateProxy, parseDollarPrice } from "utils";
+import { parseDollarPrice } from "utils";
 
 import "./FilterableProductTable.css";
 
@@ -15,9 +15,6 @@ export class FilterableProductTable extends React.Component {
     products: [],
     search: "",
   };
-
-  // Scope our 'proxy' to 'this' entire object - class
-  stateProxy = createStateProxy(this);
 
   filterCBs = {
     inStockOnly: ({ stocked }) => stocked,
