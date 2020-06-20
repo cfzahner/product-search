@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 
 import { Form } from "../Form";
@@ -5,10 +6,8 @@ import { Form } from "../Form";
 import "./Filters.css";
 
 export class Filters extends Form {
-  state = {
-    inStockOnly: false,
-    maxPrice: null,
-    search: "",
+  static propTypes = {
+    onChange: PropTypes.func,
   };
 
   inputs = [
@@ -25,6 +24,15 @@ export class Filters extends Form {
       inputType: "search",
     },
   ];
+
+  handleChange = (event) => {
+    this.props.onChange({
+      [event.target.dataset.st]:
+        event.target.type === "checkbox"
+          ? event.target.checked
+          : event.target.value,
+    });
+  };
 
   render() {
     return <form>{this.renderInputs(this.inputs)}</form>;

@@ -9,18 +9,16 @@ import { Filters } from "../Forms/Filters";
 
 export class FilterableProductTable extends React.Component {
   state = {
-    inStockOnly: false,
-    maxPrice: null,
     products: [],
-    search: "",
+    activeProductFilters: [],
   };
 
   filterCBs = {
-    inStockOnly: ({ stocked }) => stocked,
-    maxPrice: ({ price }) =>
-      parseDollarPrice(price) <= parseFloat(this.state.maxPrice),
-    search: ({ name }) =>
-      name.toLowerCase().includes(this.state.search.toLowerCase()),
+    inStockOnly: (_) => ({ stocked }) => stocked,
+    maxPrice: (maxPrice) => ({ price }) =>
+      parseDollarPrice(price) <= parseFloat(maxPrice),
+    search: (search) => ({ name }) =>
+      name.toLowerCase().includes(search.toLowerCase()),
   };
 
   async componentDidMount() {
@@ -30,12 +28,6 @@ export class FilterableProductTable extends React.Component {
       console.error(error);
     }
   }
-
-  filterCBNames = Object.keys(this.filterCBs);
-
-  filterableStateNames = Object.keys(this.state).filter((stateName) =>
-    this.filterCBNames.includes(stateName)
-  );
 
   inputs = [
     {
@@ -53,22 +45,39 @@ export class FilterableProductTable extends React.Component {
     },
   ];
 
+  handleChange = (filterUpdate) => {
+    const keyToRemove = Object.keys(filterUpdate)[0];
+
+    // Get rid of 🔑from productFilters - if it's there
+    const productFilters = [...this.state.activeProductFilters].filter(
+      (productFilter) => !(Object.keys(productFilter)[0] === keyToRemove)
+    );
+
+    productFilters.push(filterUpdate);
+
+    const activeProductFilters = productFilters.filter((productFilter) => {
+      console.log(Object.values(productFilter)[0]);
+      return Object.values(productFilter)[0];
+    });
+
+    this.setState({ activeProductFilters });
+  };
+
   render() {
-    const filteredProducts = this.filterableStateNames.reduce(
-      (accumulatedProducts, filterableStateName) => {
-        if (this.state[filterableStateName]) {
-          return accumulatedProducts.filter(
-            this.filterCBs[filterableStateName]
-          );
-        }
-        return accumulatedProducts;
+    const filteredProducts = this.state.activeProductFilters.reduce(
+      (accumulatedProducts, productFilter) => {
+        return accumulatedProducts.filter(
+          this.filterCBs[Object.keys(productFilter)[0]](
+            Object.values(productFilter)[0]
+          )
+        );
       },
       this.state.products
     );
 
     return (
       <main className="FilterableProductTable">
-        <Filters />
+        <Filters onChange={this.handleChange} />
         <Table products={filteredProducts} />
       </main>
     );

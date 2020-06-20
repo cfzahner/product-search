@@ -3,6 +3,7 @@ import React from "react";
 import { Input } from "./Input";
 
 export class Form extends React.Component {
+  // Most of the time, we just want to update the individual form's state
   handleChange = (event) => {
     this.setState({
       // Use the 🐫Cased id to set state
@@ -19,7 +20,7 @@ export class Form extends React.Component {
         label={labelText}
         type={inputType}
         key={labelText}
-        handleChange={this.handleChange.bind(this)}
+        onChange={this.handleChange}
       />
     ));
 }

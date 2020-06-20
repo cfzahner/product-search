@@ -13,7 +13,7 @@ export class Input extends React.Component {
 
   static propTypes = {
     label: PropTypes.string.isRequired,
-    handleChange: PropTypes.func,
+    onChange: PropTypes.func,
     st: PropTypes.string,
     type: PropTypes.string,
   };
@@ -30,7 +30,7 @@ export class Input extends React.Component {
           type={this.props.type}
           placeholder={this.props.label}
           data-st={this.props.st || this.camelCaseLabel}
-          onChange={this.props.handleChange}
+          onChange={this.props.onChange}
         />
       </div>
     );
