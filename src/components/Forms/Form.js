@@ -5,8 +5,11 @@ import { Input } from "./Input";
 export class Form extends React.Component {
   handleChange = (event) => {
     this.setState({
-      // Use the 🐫Cased id of the input along with either the truthy value or 'checked'
-      [event.target.dataset.st]: event.target.value || event.target.checked,
+      // Use the 🐫Cased id to set state
+      [event.target.dataset.st]:
+        event.target.type === "checkbox"
+          ? event.target.checked
+          : event.target.value,
     });
   };
 
