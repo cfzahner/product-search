@@ -1,12 +1,11 @@
 import React from "react";
 
-import { Input } from "components/Input";
 import { ProductTable as Table } from "./ProductTable";
 
 import { getAllProducts } from "api";
 import { parseDollarPrice } from "utils";
 
-import "./FilterableProductTable.css";
+import { Filters } from "../Forms/Filters";
 
 export class FilterableProductTable extends React.Component {
   state = {
@@ -54,20 +53,6 @@ export class FilterableProductTable extends React.Component {
     },
   ];
 
-  renderInputs() {
-    return this.inputs.map(
-      ({ labelTextContent, inputType, valType }, index) => (
-        <Input
-          label={labelTextContent}
-          type={inputType}
-          value={valType}
-          proxy={this.stateProxy}
-          key={index}
-        />
-      )
-    );
-  }
-
   render() {
     const filteredProducts = this.filterableStateNames.reduce(
       (accumulatedProducts, filterableStateName) => {
@@ -83,12 +68,7 @@ export class FilterableProductTable extends React.Component {
 
     return (
       <main className="FilterableProductTable">
-        <form>
-          <fieldset>
-            <legend>Search Filters</legend>
-            {this.renderInputs()}
-          </fieldset>
-        </form>
+        <Filters />
         <Table products={filteredProducts} />
       </main>
     );

@@ -16,7 +16,6 @@ export class Input extends React.Component {
     handleChange: PropTypes.func,
     st: PropTypes.string,
     type: PropTypes.string,
-    value: PropTypes.string,
   };
 
   // All attributes to be camelCased

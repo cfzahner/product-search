@@ -1,7 +1,6 @@
 import React from "react";
 
-import { Form } from "components/Forms/Form";
-import { Input } from "components/Input";
+import { Form } from "../Form";
 
 import "./Filters.css";
 
@@ -20,7 +19,6 @@ export class Filters extends Form {
     {
       labelText: "In Stock Only",
       inputType: "checkbox",
-      valType: "checked",
     },
     {
       labelText: "Search",
@@ -28,19 +26,7 @@ export class Filters extends Form {
     },
   ];
 
-  renderInputs() {
-    return this.inputs.map(({ labelText, inputType, valType }, index) => (
-      <Input
-        label={labelText}
-        type={inputType}
-        value={valType}
-        proxy={this.stateProxy}
-        key={index}
-      />
-    ));
-  }
-
   render() {
-    return <form>{this.renderInputs()}</form>;
+    return <form>{this.renderInputs(this.inputs)}</form>;
   }
 }
