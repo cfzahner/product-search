@@ -13,7 +13,7 @@ export class Input extends React.Component {
 
   static propTypes = {
     label: PropTypes.string.isRequired,
-    proxy: PropTypes.object.isRequired,
+    handleChange: PropTypes.func,
     st: PropTypes.string,
     type: PropTypes.string,
     value: PropTypes.string,
@@ -21,10 +21,6 @@ export class Input extends React.Component {
 
   // All attributes to be camelCased
   camelCaseLabel = camelCase(this.props.label);
-
-  handleChange = ({ target }) => {
-    this.props.proxy[target.dataset.st] = target[this.props.value];
-  };
 
   render() {
     return (
@@ -35,7 +31,7 @@ export class Input extends React.Component {
           type={this.props.type}
           placeholder={this.props.label}
           data-st={this.props.st || this.camelCaseLabel}
-          onChange={this.handleChange}
+          onChange={this.props.handleChange}
         />
       </div>
     );

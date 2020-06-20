@@ -1,12 +1,11 @@
 import React from "react";
 
 import { Button } from "components/Button";
-import { Form } from "components/Forms/Form";
-import { Input } from "components/Input";
+import { Input } from "../Input";
 
 import styles from "./Login.module.css";
 
-export class Login extends Form {
+export class Login extends React.Component {
   state = {
     isLoggedIn: false,
     password: "",
@@ -24,13 +23,20 @@ export class Login extends Form {
     },
   ];
 
+  handleChange = (event) => {
+    this.setState({
+      // Use the 🐫Cased id of the input along with either the truthy value or 'checked'
+      [event.target.dataset.st]: event.target.value || event.target.checked,
+    });
+  };
+
   renderInputs = (inputs) =>
     inputs.map(({ labelText, inputType }) => (
       <Input
         label={labelText}
         type={inputType}
-        proxy={this.stateProxy}
         key={labelText}
+        handleChange={this.handleChange.bind(this)}
       />
     ));
 
