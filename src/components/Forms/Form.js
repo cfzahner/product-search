@@ -1,13 +1,22 @@
 import React from "react";
 
+import { Input } from "./Input";
+
 export class Form extends React.Component {
-  // Scope our 'proxy' to 'this' entire object - class
-  stateProxy = new Proxy(this, {
-    // 'Trap' the object on which we attempted to change a 'prop' - 'comp'
-    set(comp, prop, value) {
-      // 'this' is scoped to 'set' - so we must 'comp' which will be the original 'this'
-      comp.setState({ [prop]: value });
-      return true;
-    },
-  });
+  handleChange = (event) => {
+    this.setState({
+      // Use the 🐫Cased id of the input along with either the truthy value or 'checked'
+      [event.target.dataset.st]: event.target.value || event.target.checked,
+    });
+  };
+
+  renderInputs = (inputs) =>
+    inputs.map(({ labelText, inputType }) => (
+      <Input
+        label={labelText}
+        type={inputType}
+        key={labelText}
+        handleChange={this.handleChange.bind(this)}
+      />
+    ));
 }
