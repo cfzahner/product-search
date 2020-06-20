@@ -7,6 +7,10 @@ import products from "./routes/api/products";
 const app = express();
 const PORT = 3001;
 
+app.get("/", (_, res) => {
+  res.send("We here! We here!");
+});
+
 app.use(
   cors({
     // Allow CORS from 'localhost' only
