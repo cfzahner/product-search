@@ -22,3 +22,7 @@ body {
 form {
   border: solid thin #333;
 }
+
+button {
+  border: none;
+}
