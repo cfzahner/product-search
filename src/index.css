@@ -18,3 +18,7 @@ body {
   max-width: 375px;
   padding: 1rem;
 }
+
+form {
+  border: solid thin #333;
+}

@@ -3,6 +3,8 @@ import React from "react";
 import { Form } from "components/Forms/Form";
 import { Input } from "components/Input";
 
+import "./Filters.css";
+
 export class Filters extends Form {
   state = {
     inStockOnly: false,
