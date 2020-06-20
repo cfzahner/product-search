@@ -48,8 +48,8 @@ export class FilterableProductTable extends React.Component {
   handleChange = (filterUpdate) => {
     const keyToRemove = Object.keys(filterUpdate)[0];
 
-    // Get rid of 🔑from productFilters - if it's there
-    const productFilters = [...this.state.activeProductFilters].filter(
+    // Get rid of 🔑 from productFilters - if it's there
+    const productFilters = this.state.activeProductFilters.filter(
       (productFilter) => !(Object.keys(productFilter)[0] === keyToRemove)
     );
 
