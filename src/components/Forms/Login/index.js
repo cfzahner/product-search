@@ -23,9 +23,15 @@ export class Login extends Form {
     },
   ];
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.processFormData(e.target, "st"));
+  };
+
   render() {
+    // TODO: Add error handling depending on authentication
     return (
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={this.handleSubmit}>
         {this.renderInputs(this.inputs)}
         <Button />
         <Button buttonClass="plain" label="Register?" type="button" />
