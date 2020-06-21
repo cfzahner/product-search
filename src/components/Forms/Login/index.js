@@ -55,7 +55,6 @@ export class Login extends Form {
         <Button
           buttonClass="plain"
           buttonText={this.state.buttonTexts[1]}
-          label="Register?"
           type="button"
           onClick={this.handleRegistration}
         />
