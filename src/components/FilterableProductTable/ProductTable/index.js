@@ -1,21 +1,13 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import { Fave } from "./Fave";
+import { ProductRow } from "./ProductRow";
 
 import "./ProductTable.css";
 
 const renderTBody = (products) => {
-  return products.map(({ name, price }, index) => {
-    return (
-      <tr key={index}>
-        <td>{name}</td>
-        <td>{price}</td>
-        <td className="fave">
-          <Fave />
-        </td>
-      </tr>
-    );
+  return products.map(({ _id: id, name, price }) => {
+    return <ProductRow id={id} name={name} price={price} key={id} />;
   });
 };
 
