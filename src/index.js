@@ -12,7 +12,7 @@ import "./index.css";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <div className="wrapper">
+      <div className="container">
         <Header />
         <Routes />
       </div>
