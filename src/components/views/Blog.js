@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import { getData } from "api";
 
@@ -27,10 +27,10 @@ export class Blog extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <main>
         <h1>Blog</h1>
         {this.renderPosts()}
-      </Fragment>
+      </main>
     );
   }
 }

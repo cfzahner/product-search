@@ -1,8 +1,7 @@
-import { Fragment } from "react";
 import React from "react";
 
 export const AboutUs = () => (
-  <Fragment>
+  <main>
     <h1>About Us!</h1>
     <section>
       <h2>What is Lorem Ipsum?</h2>
@@ -34,5 +33,5 @@ export const AboutUs = () => (
         like).
       </p>
     </section>
-  </Fragment>
+  </main>
 );
