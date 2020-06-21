@@ -25,5 +25,12 @@
   "workbench.colorTheme": "GitHub Dark",
   "workbench.enableExperiments": false,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.view.alwaysShowHeaderActions": true
+  "workbench.view.alwaysShowHeaderActions": true,
+  "cSpell.words": [
+    "Bonorum",
+    "Clintock",
+    "Finibus",
+    "amet",
+    "consectetur"
+  ]
 }
