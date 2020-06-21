@@ -6,7 +6,6 @@ import {
   AboutUs,
   Blog,
   FilterableProductTable as ProductTable,
-  Login,
 } from "./components";
 
 import "./App.css";
