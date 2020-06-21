@@ -1,4 +1,3 @@
-/* TODO: Add additional button classes to build a 'style library.' 🤷🏽‍♂️ */
 button:not(.plain) {
   border-radius: 0.25rem;
   color: #fff;
