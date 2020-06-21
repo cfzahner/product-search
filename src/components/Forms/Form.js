@@ -13,6 +13,11 @@ export class Form extends React.Component {
     });
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    authenticateUser(this.processFormData(e.target, "st"));
+  };
+
   processFormData = (formControls, datasetKey) =>
     // Convert to ARRAY and 'filter' only inputs with 'ids' (not 'button', etc.)
     Array.from(formControls)

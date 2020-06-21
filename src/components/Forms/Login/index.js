@@ -7,6 +7,7 @@ import styles from "./Login.module.css";
 
 export class Login extends Form {
   state = {
+    buttonTexts: ["Login", "Register"],
     inputs: [
       {
         inputType: "text",
@@ -38,6 +39,7 @@ export class Login extends Form {
 
     // 'length' determines whether registrationInputs included or not
     this.setState({
+      buttonTexts: [...this.state.buttonTexts].reverse(),
       inputs:
         currentInputs.length > 2
           ? currentInputs.slice(0, 2)
@@ -49,9 +51,10 @@ export class Login extends Form {
     return (
       <form className={styles.form} onSubmit={this.handleSubmit}>
         {this.renderInputs(this.state.inputs)}
-        <Button />
+        <Button buttonText={this.state.buttonTexts[0]} />
         <Button
           buttonClass="plain"
+          buttonText={this.state.buttonTexts[1]}
           label="Register?"
           type="button"
           onClick={this.handleRegistration}
