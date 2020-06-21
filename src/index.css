@@ -20,8 +20,18 @@ li {
   list-style-type: none;
 }
 
+form,
+table {
+  margin: 0 0.5rem;
+}
+
 form {
   border: solid thin #333;
+  padding: 0.5rem;
+}
+
+table {
+  padding: 1rem;
 }
 
 button {
