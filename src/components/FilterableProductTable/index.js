@@ -7,6 +7,8 @@ import { parseDollarPrice } from "utils";
 
 import { Filters } from "../Forms/Filters";
 
+import "./FilterableProductTable.css";
+
 export class FilterableProductTable extends React.Component {
   state = {
     products: [],
@@ -78,7 +80,7 @@ export class FilterableProductTable extends React.Component {
     );
 
     return (
-      <main className="FilterableProductTable">
+      <main className="main">
         <Filters onChange={this.handleChange} />
         <Table products={filteredProducts} />
       </main>
