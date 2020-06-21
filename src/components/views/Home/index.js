@@ -1,9 +1,15 @@
 import React from "react";
 
+import { Login } from "components/Forms/Login";
+
+import "./Home.css";
+
 export const Home = () => (
   <main>
     <h1>Home!</h1>
-    <div />
+    <div className="hero">
+      <Login />
+    </div>
     <section>
       <h2>Where does it come from?</h2>
       <p>

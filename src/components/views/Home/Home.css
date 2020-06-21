@@ -1,4 +1,8 @@
-div {
+.hero {
+  align-items: center;
   background: url("https://source.unsplash.com/random/800x600") no-repeat center center fixed;
   background-size: cover;
+  display: flex;
+  height: 300px;
+  justify-content: center;
 }

@@ -27,3 +27,8 @@ form {
 button {
   border: none;
 }
+
+button:focus,
+button:hover {
+  outline: none;
+}
