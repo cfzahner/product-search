@@ -1,10 +1,23 @@
-import React, { Fragment } from "react";
+import React from "react";
 
-import { FilterableProductTable as ProductTable, Login } from "./components";
+import {
+  Header,
+  Home,
+  AboutUs,
+  Blog,
+  FilterableProductTable as ProductTable,
+  Login,
+} from "./components";
+
+import "./App.css";
 
 export const App = () => (
-  <Fragment>
+  <div className="App">
+    <Header />
+    <Home />
+    <AboutUs />
+    <Blog />
     <Login />
     <ProductTable />
-  </Fragment>
+  </div>
 );

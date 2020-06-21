@@ -14,9 +14,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 20px;
-  margin: 0 auto;
-  max-width: 375px;
-  padding: 1rem;
+}
+
+li {
+  list-style-type: none;
 }
 
 form {
