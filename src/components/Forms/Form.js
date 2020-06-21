@@ -2,6 +2,8 @@ import React from "react";
 
 import { Input } from "./Input";
 
+import { authenticateUser } from "api";
+
 export class Form extends React.Component {
   // Most of the time, we just want to update the individual form's state
   handleChange = (event) => {
