@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import { Fave } from "./Fave";
+import { FaveDeets } from "./FaveDeets";
 
 export class ProductRow extends React.Component {
   static propTypes = {
@@ -21,7 +21,7 @@ export class ProductRow extends React.Component {
         <td>{this.props.name}</td>
         <td>{this.props.price}</td>
         <td className="fave">
-          <Fave onClick={this.handleClick} />
+          <FaveDeets onClick={this.handleClick} />
         </td>
       </tr>
     );
