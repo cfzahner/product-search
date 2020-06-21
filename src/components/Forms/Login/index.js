@@ -7,34 +7,55 @@ import styles from "./Login.module.css";
 
 export class Login extends Form {
   state = {
+    inputs: [
+      {
+        inputType: "text",
+        labelText: "Username",
+      },
+      {
+        inputType: "password",
+        labelText: "Password",
+      },
+    ],
     isLoggedIn: false,
     password: "",
     username: "",
   };
 
-  inputs = [
+  registrationInputs = [
     {
       inputType: "text",
-      labelText: "Username",
+      labelText: "Name",
     },
     {
-      inputType: "password",
-      labelText: "Password",
+      inputType: "email",
+      labelText: "Email",
     },
   ];
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.processFormData(e.target, "st"));
+  handleRegistration = () => {
+    const currentInputs = this.state.inputs;
+
+    // 'length' determines whether registrationInputs included or not
+    this.setState({
+      inputs:
+        currentInputs.length > 2
+          ? currentInputs.slice(0, 2)
+          : currentInputs.concat(this.registrationInputs),
+    });
   };
 
   render() {
-    // TODO: Add error handling depending on authentication
     return (
       <form className={styles.form} onSubmit={this.handleSubmit}>
-        {this.renderInputs(this.inputs)}
+        {this.renderInputs(this.state.inputs)}
         <Button />
-        <Button buttonClass="plain" label="Register?" type="button" />
+        <Button
+          buttonClass="plain"
+          label="Register?"
+          type="button"
+          onClick={this.handleRegistration}
+        />
       </form>
     );
   }
