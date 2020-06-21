@@ -10,19 +10,19 @@ import {
 
 export const Routes = () => (
   <Switch>
-    <Route path="/home">
+    <Route exact path="/home">
       <Home />
     </Route>
-    <Route path="/">
+    <Route exact path="/">
       <Redirect to="/home" />
     </Route>
-    <Route path="/products">
+    <Route exact path="/products">
       <ProductTable />
     </Route>
-    <Route path="/about">
+    <Route exact path="/about">
       <AboutUs />
     </Route>
-    <Route path="/blog">
+    <Route exact path="/blog">
       <Blog />
     </Route>
   </Switch>
