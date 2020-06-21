@@ -2,7 +2,7 @@ import React from "react";
 
 import { ProductTable as Table } from "./ProductTable";
 
-import { getAllProducts } from "api";
+import { getData } from "api";
 import { parseDollarPrice } from "utils";
 
 import { Filters } from "../Forms/Filters";
@@ -23,7 +23,9 @@ export class FilterableProductTable extends React.Component {
 
   async componentDidMount() {
     try {
-      this.setState({ products: await getAllProducts() });
+      this.setState({
+        products: await getData("http://localhost:3001/api/products/products"),
+      });
     } catch (error) {
       console.error(error);
     }
