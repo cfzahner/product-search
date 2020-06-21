@@ -1,0 +1,4 @@
+span:focus,
+span:hover {
+  cursor: pointer;
+}
