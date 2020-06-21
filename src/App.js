@@ -17,7 +17,6 @@ export const App = () => (
     <Home />
     <AboutUs />
     <Blog />
-    <Login />
     <ProductTable />
   </div>
 );
