@@ -1,8 +1,9 @@
+import { NavLink } from "react-router-dom";
 import React from "react";
 
-import "./Navigation.css";
-
 import kebabcase from "lodash.kebabcase";
+
+import "./Navigation.css";
 
 const links = ["Home", "About Us", "Blog"];
 
@@ -10,7 +11,7 @@ const createLinks = () => {
   return links.map((link) => {
     return (
       <li key={link}>
-        <a href={kebabcase(link)}>{link}</a>
+        <NavLink to={"/" + kebabcase(link)}>{link}</NavLink>
       </li>
     );
   });
