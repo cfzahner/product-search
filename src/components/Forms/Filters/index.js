@@ -3,7 +3,8 @@ import React from "react";
 
 import { Form } from "../Form";
 
-import "./Filters.css";
+// 'styles' is not a named export
+import styles from "./Filters.module.css";
 
 export class Filters extends Form {
   static propTypes = {
@@ -35,6 +36,8 @@ export class Filters extends Form {
   };
 
   render() {
-    return <form>{this.renderInputs(this.inputs)}</form>;
+    return (
+      <form className={styles.form}>{this.renderInputs(this.inputs)}</form>
+    );
   }
 }

@@ -1,16 +1,13 @@
 import PropTypes from "prop-types";
 import React from "react";
 
+import { ProductRow } from "./ProductRow";
+
 import "./ProductTable.css";
 
 const renderTBody = (products) => {
-  return products.map(({ name, price }, index) => {
-    return (
-      <tr key={index}>
-        <td>{name}</td>
-        <td>{price}</td>
-      </tr>
-    );
+  return products.map(({ _id: id, name, price }) => {
+    return <ProductRow id={id} name={name} price={price} key={id} />;
   });
 };
 
@@ -21,6 +18,12 @@ export const ProductTable = ({ products }) => {
         <tr>
           <th>Product Name</th>
           <th>Price</th>
+          <th>
+            <span role="img" aria-label="green heart">
+              💚
+            </span>{" "}
+            means saved! 😉
+          </th>
         </tr>
       </thead>
       <tbody>{renderTBody(products)}</tbody>
