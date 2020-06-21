@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
 
-import kebabcase from "lodash.kebabcase";
-
 import "./Navigation.css";
 
-const links = ["Home", "About Us", "Blog"];
+const links = ["Home", "Products", "About", "Blog"];
 
 const createLinks = () => {
   return links.map((link) => {
     return (
       <li key={link}>
-        <NavLink to={"/" + kebabcase(link)}>{link}</NavLink>
+        <NavLink to={"/" + link.toLowerCase()} activeClassName="isActiveLink">
+          {link}
+        </NavLink>
       </li>
     );
   });

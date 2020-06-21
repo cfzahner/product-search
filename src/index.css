@@ -32,3 +32,8 @@ button:focus,
 button:hover {
   outline: none;
 }
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+}

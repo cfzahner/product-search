@@ -1,7 +1,13 @@
 nav ul {
   display: flex;
   justify-content: space-around;
-  /* max-width: 1200px - 320px */
   width: 880px;
 }
 
+a {
+  text-decoration: none;
+}
+
+.isActiveLink {
+  text-transform: uppercase;
+}
