@@ -1,5 +1,5 @@
-export const getData = async (endpoint) => {
-  const res = await fetch(endpoint);
+export const makeRequest = async (endpoint, req) => {
+  const res = await fetch(endpoint, req);
   return await res.json();
 };
 

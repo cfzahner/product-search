@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getData } from "api";
+import { makeRequest } from "api";
 
 export class Blog extends React.Component {
   state = {
@@ -10,7 +10,7 @@ export class Blog extends React.Component {
   async componentDidMount() {
     try {
       this.setState({
-        posts: await getData("https://jsonplaceholder.typicode.com/posts"),
+        posts: await makeRequest("https://jsonplaceholder.typicode.com/posts"),
       });
     } catch (error) {
       console.error(error);
